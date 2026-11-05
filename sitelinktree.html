@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sasha Villain – Liens Professionnels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. VARIABLES DE COULEURS ET THÈMES
+   Palette cosy rétro : caramel, crème, brun encre et bordeaux
+========================================================= */
+:root {
+  --bg: #e6cfa3;       /* Fond principal (beige caramel doux) */
+  --bg2: #d9b98a;      /* Teinte de fond secondaire */
+  --card: #f6ead0;     /* Fond des cartes et boutons (crème) */
+  --ink: #2e170d;      /* Texte & bordures (brun chocolat foncé) */
+  --accent: #e08a3c;   /* Pastilles et surbrillance (orange chaud) */
+  --wine: #6b1220;     /* Bouton principal CV (rouge bordeaux) */
+  --on-wine: #f6ead0;  /* Texte sur fond bordeaux */
+  --blob: #c9a56f;     /* Cercles décoratifs d'arrière-plan */
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Mode sombre automatique selon le téléphone */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #241209;
+    --bg2: #33190d;
+    --card: #3d2113;
+    --ink: #f3e3c3;
+    --accent: #e9984a;
+    --wine: #8a1a2c;
+    --on-wine: #f6ead0;
+    --blob: #4a2a18;
+  }
+}
+
+* { box-sizing: border-box; }
+
+/* =========================================================
+   2. MISE EN PAGE GLOBALE (BODY & DÉCORS)
+========================================================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--bg);
+  font: 500 16px/1.5 "DM Sans", system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 28px 18px 56px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Texture de grain façon vieux dessin animé en surimpression */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .1  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Formes floues flottantes en arrière-plan */
+.blob { position: fixed; border-radius: 50%; background: var(--blob); opacity: .55; z-index: 0; }
+.b1 { width: 340px; height: 260px; left: -120px; top: 120px; }
+.b2 { width: 380px; height: 300px; right: -160px; bottom: 60px; }
+
+/* Colonne centrale */
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* =========================================================
+   3. EN-TÊTE DU PROFIL (AVATAR, NOM, BIO)
+========================================================= */
+.avatar {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 4px solid var(--ink);
+  box-shadow: 5px 6px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-top: 6px;
+  font: 400 54px "Bagel Fat One", system-ui, sans-serif;
+  color: var(--wine);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+h1 {
+  font: 400 38px/1.05 "Bagel Fat One", system-ui, sans-serif;
+  margin: 6px 0 0;
+  text-align: center;
+  letter-spacing: .5px;
+  color: var(--ink);
+  text-shadow: 3px 3px 0 var(--accent);
+}
+
+.handle { margin: 0; font-weight: 700; opacity: .85; text-align: center; }
+.bio { margin: 0; text-align: center; max-width: 36ch; font-size: 15px; }
+
+/* =========================================================
+   4. TITRES DE RUBRIQUES & BOUTONS DE LIENS
+========================================================= */
+.section-title {
+  width: 100%;
+  font: 400 18px "Bagel Fat One", system-ui, sans-serif;
+  color: var(--ink);
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 2.5px;
+  background: var(--ink);
+  opacity: .25;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 700;
+  transition: transform .12s, box-shadow .12s;
+}
+.link:hover, .link:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+  outline: none;
+}
+.link:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+/* Bouton accentué (spécial CV en bordeaux) */
+.link.main { background: var(--wine); color: var(--on-wine); }
+.link.main .dot { background: var(--card); color: var(--wine); }
+
+.dot {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  color: #2e170d;
+}
+.link span.t { flex: 1; text-align: center; margin-right: 34px; }
+
+/* =========================================================
+   5. PIED DE PAGE & ANIMATION D'ENTRÉE
+========================================================= */
+footer { font-size: 13px; opacity: .75; margin-top: 8px; }
+
+.links .link { animation: pop .45s cubic-bezier(.3,1.6,.5,1) backwards; }
+.links .link:nth-child(2) { animation-delay: .08s; }
+.links .link:nth-child(3) { animation-delay: .16s; }
+.links .link:nth-child(4) { animation-delay: .24s; }
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(.88) rotate(-2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .links .link { animation: none; }
+  .link { transition: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+
+<main>
+  <!-- Photo de profil ou initiale de secours -->
+  <div class="avatar" id="avatar">S</div>
+
+  <h1 id="name">Sasha Villain</h1>
+  <p class="handle" id="handle">JUNIA HEI</p>
+  <p class="bio" id="bio">Electrical Engineering & Energy Transition Student</p>
+
+  <!-- Section 1 : Liens Prioritaires (CV, LinkedIn, Contact) -->
+  <div class="section-title">Documents & Profils</div>
+  <nav class="links" id="primary-links" aria-label="Documents et profils"></nav>
+
+  <!-- Section 2 : Projets & Réalisations (votre futur blog et code) -->
+  <div class="section-title">Projects & Research</div>
+  <nav class="links" id="project-links" aria-label="Projets et travaux"></nav>
+
+  <footer>JUNIA HEI • Lille</footer>
+</main>
+
+<script>
+/* =========================================================
+   CONFIGURATION DU PROFIL ET DES LIENS
+   (Modifiez vos informations ci-dessous)
+========================================================= */
+const PROFILE = {
+  name: "Sasha Villain",
+  handle: "JUNIA HEI Lille",
+  bio: "Electrical Engineering & Energy Transition Student • Seeking 6-Month Internship in Singapore (Feb 2027)",
+  avatar: "https://media.licdn.com/dms/image/v2/D4E03AQG0UNsoIWIKfA/profile-displayphoto-scale_400_400/B4EZxDZeubJsAg-/0/1770657284354?e=1795651200&v=beta&t=LXbHYOGuer9K3DtuB6uyH_gTM6rRIxWwfURgjGLOl4g"
+};
+
+// 1. Boutons de la section "Documents & Profils"
+const PRIMARY_LINKS = [
+  { label: "View my Resume (PDF)", url: "CV.pdf", icon: "📄", main: true },
+  { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/sasha-villain-185860268", icon: "in" },
+  { label: "Contact me (E-mail)", url: "mailto:sasha.villain@gmail.com", icon: "✉" }
+];
+
+// 2. Boutons de la section "Projets & Travaux" (Blog, GitHub, etc.)
+const PROJECT_LINKS = [
+  { label: "Engineering Blog (Coming soon)", url: "#", icon: "📝" },
+  { label: "Technical Projects & Code (Coming soon)", url: "https://github.com/", icon: "⚡" }
+];
+
+/* =========================================================
+   FONCTIONS DE RENDU (Explications détaillées)
+========================================================= */
+
+// Raccourci pour sélectionner un élément HTML par son identifiant id
+const $ = id => document.getElementById(id);
+
+/**
+ * 1. Initialise les textes du profil et l'image d'avatar
+ */
+function initProfile() {
+  document.title = PROFILE.name + " – liens";
+  $("name").textContent = PROFILE.name;
+  $("handle").textContent = PROFILE.handle;
+  $("bio").textContent = PROFILE.bio;
+
+  // Si une URL d'avatar existe, on injecte une balise <img>, sinon on affiche la 1ère lettre
+  if (PROFILE.avatar) {
+    const img = document.createElement("img");
+    img.src = PROFILE.avatar;
+    img.alt = PROFILE.name;
+    $("avatar").textContent = "";
+    $("avatar").appendChild(img);
+  } else {
+    $("avatar").textContent = PROFILE.name.trim().charAt(0).toUpperCase();
+  }
+}
+
+/**
+ * 2. Crée dynamiquement les boutons de liens et les insère dans le conteneur spécifié
+ * @param {Array} linksArray - Liste d'objets { label, url, icon, main }
+ * @param {string} targetContainerId - ID de la balise nav où injecter les boutons
+ */
+function renderLinkList(linksArray, targetContainerId) {
+  const container = $(targetContainerId);
+
+  linksArray.forEach(item => {
+    const a = document.createElement("a");
+    a.className = "link" + (item.main ? " main" : "");
+    a.href = item.url;
+
+    // Règle importante pour les liens email :
+    // On ne met PAS target="_blank" sur un mailto: car cela ouvre un onglet blanc inutile
+    if (item.url.startsWith("mailto:")) {
+      a.removeAttribute("target");
+    } else {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
+
+    // Structure interne du bouton : pastille icône + texte centré
+    a.innerHTML = '<span class="dot" aria-hidden="true"></span><span class="t"></span>';
+    a.querySelector(".dot").textContent = item.icon;
+    a.querySelector(".t").textContent = item.label;
+
+    container.appendChild(a);
+  });
+}
+
+/* =========================================================
+   EXÉCUTION DU CODE
+========================================================= */
+initProfile();
+renderLinkList(PRIMARY_LINKS, "primary-links");
+renderLinkList(PROJECT_LINKS, "project-links");
+</script>
+</body>
+</html>
